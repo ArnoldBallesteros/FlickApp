@@ -42,10 +42,13 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 ## Notes
 
 Describe any challenges encountered while building the app.
+-Generally getting used to the MacOS ecosystem as a PC User
+-Getting through the construction of the app itself
+-Understanding how to apply the refresh utility
 
 ## License
 
-    Copyright [yyyy] [name of copyright owner]
+    Copyright [2016] [Arnold Ballesteros]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
