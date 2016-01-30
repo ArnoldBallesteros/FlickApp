@@ -94,8 +94,9 @@ Please list two areas of the assignment you'd like to **discuss further with you
 ## Video Walkthrough 
 
 Here's a walkthrough of implemented user stories:
+If GIF is not loading, LINK : <img src = 'http://i.imgur.com/njLiE4T.gif' />
 
-<img src= 'http://i.imgur.com/njLiE4T.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src= 'http://i.imgur.com/njLiE4T.gifv' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
