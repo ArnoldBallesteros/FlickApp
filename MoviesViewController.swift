@@ -24,13 +24,21 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
     
     var filteredData: [NSDictionary] = []
     
+    var endpoint: String!
+    
+    var selectedBackgroundView: UIView?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.dataSource = self
         
         searchBar.delegate = self
+        
+        
+        
         //Refresh
+       
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: "refreshControlAction:", forControlEvents: UIControlEvents.ValueChanged)
         tableView.insertSubview(refreshControl, atIndex: 0)
@@ -40,7 +48,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         
         //Network Request
         let apiKey = "a07e22bc18f5cb106bfe4cc1f83ad8ed"
-        let url = NSURL(string: "https://api.themoviedb.org/3/movie/now_playing?api_key=\(apiKey)")
+        let url = NSURL(string: "https://api.themoviedb.org/3/movie/\(endpoint)?api_key=\(apiKey)")
         let request = NSURLRequest(
             URL: url!,
             cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalCacheData,
@@ -98,20 +106,23 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         let movie = filteredData[indexPath.row]
         let title = movie["title"] as! String
         let overview = movie["overview"] as! String
-        let posterPath = movie["poster_path"] as! String
-        let baseUrl = "http://image.tmdb.org/t/p/w500"
-        //Change NSURL >> NSURLRequest
-        let imageUrl = NSURL(string: baseUrl + posterPath)
-        let placeHolder = "http://i.imgur.com/3BZctvK.png"
-        let uimage = UIImage(named: placeHolder)
-//        let placeView = UIImageView(image: uimage!)
-        let imageRequest = NSURLRequest(URL: NSURL(string: baseUrl + posterPath)!)
+        
+        
 //        cell.self.posterView.setImageWithURL(imageUrl!)
         cell.titleLabel.text = title
         cell.overviewLabel.text = overview
         
-        
+        // Poster Image
         let cellTitle = cell.titleLabel
+        let placeHolder = "http://i.imgur.com/3BZctvK.png"
+        let baseUrl = "http://image.tmdb.org/t/p/w500"
+        if let posterPath = movie["poster_path"] as? String {
+            let imageUrl = NSURL(string: baseUrl + posterPath)
+            let uimage = UIImage(named: placeHolder)
+        //        let placeView = UIImageView(image: uimage!)
+        //Change NSURL >> NSURLRequest
+
+        let imageRequest = NSURLRequest(URL: NSURL(string: baseUrl + posterPath)!)
        
         
         //Fade
@@ -129,10 +140,15 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
                 
             })
             
-                
-                
+        }
         
+        let backgroundView = UIView()
+        backgroundView.backgroundColor = UIColor(red: 0/255.0, green:122/255.0, blue:255/255.0, alpha:0.8)
+        cell.selectedBackgroundView = backgroundView
+
+            
                 
+    
         
         print("row \(indexPath.row)")
         return cell
@@ -151,23 +167,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
     
     }
 
-    //Update Search as type
-/*    func searchBar(searchBar: UISearchBar, textDidChange searchText: String){
-        print("hello")
-        if searchText.isEmpty {
-            filteredData = movies!
-        } else {
-            filteredData = movies!.filter({(movie: NSDictionary) -> Bool in
-                if title!.rangeOfString(searchText, options: .CaseInsensitiveSearch) != nil {
-                    return true
-                } else {
-                    return false
-                }
-            })
-        }
-        tableView.reloadData()
-    }
-*/
+
     //Refresh
     func refreshControlAction(refreshControl: UIRefreshControl)
     {
@@ -181,14 +181,26 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         view.endEditing(true)
     }
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let cell = sender as! UITableViewCell
+        
+        let indexPath = tableView.indexPathForCell(cell)
+        
+        let movie = movies![indexPath!.row]
+   
+        let detailViewController = segue.destinationViewController as! DetailViewController
+        
+        detailViewController.movie = movie
+        
+        print("Prepare for segue called!")
+        
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    */
+    
 
 }
