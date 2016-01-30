@@ -67,20 +67,20 @@ Describe any challenges encountered while building the app.
 
 Movie Reviewer is a movies app displaying box office and top rental DVDs using [The Movie Database API](http://docs.themoviedb.apiary.io/#).
 
-Time spent: **X** hours spent in total
+Time spent: 8 hours spent in total
 
 ## User Stories
 
 The following **required** functionality is completed:
 
-- [ ] User can view movie details by tapping on a cell.
-- [ ] User can select from a tab bar for either **Now Playing** or **Top Rated** movies.
-- [ ] Customize the selection effect of the cell.
+- [1] User can view movie details by tapping on a cell.
+- [1] User can select from a tab bar for either **Now Playing** or **Top Rated** movies.
+- [1] Customize the selection effect of the cell.
 
 The following **optional** features are implemented:
 
-- [ ] For the large poster, load the low resolution image first and then switch to the high resolution image when complete.
-- [ ] Customize the navigation bar.
+- [0] For the large poster, load the low resolution image first and then switch to the high resolution image when complete.
+- [1] Customize the navigation bar.
 
 The following **additional** features are implemented:
 
@@ -95,7 +95,7 @@ Please list two areas of the assignment you'd like to **discuss further with you
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='http://i.imgur.com/Om6ljip.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
@@ -105,7 +105,7 @@ Describe any challenges encountered while building the app.
 
 ## License
 
-    Copyright [yyyy] [name of copyright owner]
+    Copyright [2016] [Arnold B. Ballesteros]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
