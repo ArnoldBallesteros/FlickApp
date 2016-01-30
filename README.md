@@ -67,20 +67,20 @@ Describe any challenges encountered while building the app.
 
 Movie Reviewer is a movies app displaying box office and top rental DVDs using [The Movie Database API](http://docs.themoviedb.apiary.io/#).
 
-Time spent: 8 hours spent in total
+Time spent: **X** hours spent in total
 
 ## User Stories
 
 The following **required** functionality is completed:
 
-- [1] User can view movie details by tapping on a cell.
-- [1] User can select from a tab bar for either **Now Playing** or **Top Rated** movies.
-- [1] Customize the selection effect of the cell.
+- [ ] User can view movie details by tapping on a cell.
+- [ ] User can select from a tab bar for either **Now Playing** or **Top Rated** movies.
+- [ ] Customize the selection effect of the cell.
 
 The following **optional** features are implemented:
 
-- [0] For the large poster, load the low resolution image first and then switch to the high resolution image when complete.
-- [1] Customize the navigation bar.
+- [ ] For the large poster, load the low resolution image first and then switch to the high resolution image when complete.
+- [ ] Customize the navigation bar.
 
 The following **additional** features are implemented:
 
@@ -105,7 +105,7 @@ Describe any challenges encountered while building the app.
 
 ## License
 
-    Copyright [2016] [Arnold B. Ballesteros]
+    Copyright [yyyy] [name of copyright owner]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
