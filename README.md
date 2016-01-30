@@ -97,14 +97,17 @@ Here's a walkthrough of implemented user stories:
 
 - If GIF is not loading, [LINK](http://i.imgur.com/njLiE4T.gif)
 
-<img src= http://i.imgur.com/njLiE4T.gif title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src = 'http://i.imgur.com/njLiE4T.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
 
 Describe any challenges encountered while building the app.
-
+- Resizing Icons extracted the Noun Project to a size that fit the the tab Bar
+- Figuring out where to place the code for the selection effect in the view controller
+- Properly creating a tap to view movie details
+-
 ## License
 
     Copyright [2016] [Arnold B. Ballesteros]
