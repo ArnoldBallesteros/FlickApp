@@ -107,7 +107,7 @@ Describe any challenges encountered while building the app.
 - Resizing Icons extracted the Noun Project to a size that fit the the tab Bar
 - Figuring out where to place the code for the selection effect in the view controller
 - Properly creating a tap to view movie details
--
+
 ## License
 
     Copyright [2016] [Arnold B. Ballesteros]
