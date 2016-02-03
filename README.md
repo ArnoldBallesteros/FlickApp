@@ -95,6 +95,7 @@ Please list two areas of the assignment you'd like to **discuss further with you
 
 Here's a walkthrough of implemented user stories:
 
+
 <img src= 'http://i.imgur.com/njLiE4T.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 - If GIF is not loading, [LINK](http://i.imgur.com/njLiE4T.gif)
