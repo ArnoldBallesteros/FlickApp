@@ -67,38 +67,35 @@ Describe any challenges encountered while building the app.
 
 Movie Reviewer is a movies app displaying box office and top rental DVDs using [The Movie Database API](http://docs.themoviedb.apiary.io/#).
 
-Time spent: **8** hours spent in total
+Time spent: **10** hours spent in total
 
 ## User Stories
 
 The following **required** functionality is completed:
 
-- [1] User can view movie details by tapping on a cell.
-- [1] User can select from a tab bar for either **Now Playing** or **Top Rated** movies.
-- [1] Customize the selection effect of the cell.
+-  User can view movie details by tapping on a cell.
+-  User can select from a tab bar for either **Now Playing** or **Top Rated** movies.
+-  Customize the selection effect of the cell.
 
 The following **optional** features are implemented:
 
-- [ ] For the large poster, load the low resolution image first and then switch to the high resolution image when complete.
-- [1] Customize the navigation bar.
+-  For the large poster, load the low resolution image first and then switch to the high resolution image when complete.
+-  Customize the navigation bar.
 
 The following **additional** features are implemented:
 
-- [ ] List anything else that you can get done to improve the app functionality!
+- Added an Upcoming Movies tab.
+- Customized the scroll view in the detail view controller to disable the poster image from scrolling.
 
-Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
-
-1. 
-2. 
 
 ## Video Walkthrough 
 
 Here's a walkthrough of implemented user stories:
 
 
-<img src= 'http://i.imgur.com/njLiE4T.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src= 'http://i.imgur.com/HMMlHEm.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
-- If GIF is not loading, [LINK](http://i.imgur.com/njLiE4T.gif)
+- If GIF is not loading, [LINK](http://i.imgur.com/HMMlHEm.gif)
 - 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
