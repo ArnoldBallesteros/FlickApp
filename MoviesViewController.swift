@@ -83,9 +83,6 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         })
         task.resume()
         
-        
-        
-
         // Do any additional setup after loading the view.
     }
 
@@ -165,10 +162,6 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         backgroundView.backgroundColor = UIColor(red: 0/255.0, green:122/255.0, blue:255/255.0, alpha:0.8)
         cell.selectedBackgroundView = backgroundView
 
-            
-                
-    
-        
         print("row \(indexPath.row)")
         return cell
     }
