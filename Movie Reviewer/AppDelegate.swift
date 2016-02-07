@@ -46,10 +46,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         topRatedNavigationController.tabBarItem.title = "Top Rated"
             //Create Tab Bar Icon for Top Rated
         topRatedNavigationController.tabBarItem.image = UIImage(named: "Top Rated")
+        
+        //Upcoming Tab
+        let upcomingNavigationController = storyboard.instantiateViewControllerWithIdentifier("MoviesNavigationController") as! UINavigationController
+        
+        let upcomingViewController = upcomingNavigationController.topViewController as! MoviesViewController
+        
+        upcomingViewController.endpoint = "upcoming"
+        //Create Tab Bar Button for now Playing
+        upcomingNavigationController.tabBarItem.title = "Upcoming"
+        //Create Tab Bar Icon for now Playing
+        upcomingNavigationController.tabBarItem.image = UIImage(named: "Upcoming")
+
+        
         //Tab Bar Controller
         let tabBarController = UITabBarController()
             //Reference Controller to pass an array that contains Controllers that need tabs
-        tabBarController.viewControllers = [nowPlayingNavigationController, topRatedNavigationController]
+        tabBarController.viewControllers = [nowPlayingNavigationController, topRatedNavigationController,upcomingNavigationController]
         
        
         //Set Initial View Controller - Root View Controller

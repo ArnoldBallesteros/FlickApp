@@ -11,8 +11,9 @@ import AFNetworking
 import MBProgressHUD
 
 
-class MoviesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
+class MoviesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate  {
 
+    @IBOutlet var onTap: UITapGestureRecognizer!
     
     @IBOutlet weak var searchBar: UISearchBar!
     
@@ -60,7 +61,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
             delegateQueue: NSOperationQueue.mainQueue()
             
         )
-                
+        //Loading Data UI
         MBProgressHUD.showHUDAddedTo(self.view, animated: true)
         
         let task: NSURLSessionDataTask = session.dataTaskWithRequest(request,
@@ -69,7 +70,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
                     if let responseDictionary = try! NSJSONSerialization.JSONObjectWithData(
                         data, options:[]) as? NSDictionary {
                             print("response: \(responseDictionary)")
-                            //Load Data
+                            //End Loading Data UI
                             MBProgressHUD.hideHUDForView(self.view, animated: true)
                          
                             self.movies = responseDictionary["results"] as! [NSDictionary]
@@ -107,41 +108,59 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         let title = movie["title"] as! String
         let overview = movie["overview"] as! String
         
-        
-//        cell.self.posterView.setImageWithURL(imageUrl!)
-        cell.titleLabel.text = title
+                cell.titleLabel.text = title
         cell.overviewLabel.text = overview
         
         // Poster Image
         let cellTitle = cell.titleLabel
         let placeHolder = "http://i.imgur.com/3BZctvK.png"
-        let baseUrl = "http://image.tmdb.org/t/p/w500"
+        let baseUrl = "http://image.tmdb.org/t/p/"
+        let lowres = "w45"
+        let highres = "original"
+        let smallImage = UIImage(named: ("http://image.tmdb.orb/t/p/w45"))
+        let largeImage = UIImage(named: ("http://image.tmdb.org/t/p/original"))
         if let posterPath = movie["poster_path"] as? String {
             let imageUrl = NSURL(string: baseUrl + posterPath)
             let uimage = UIImage(named: placeHolder)
-        //        let placeView = UIImageView(image: uimage!)
-        //Change NSURL >> NSURLRequest
-
-        let imageRequest = NSURLRequest(URL: NSURL(string: baseUrl + posterPath)!)
+            
        
+            let largeImageRequest = NSURLRequest(URL: NSURL(string: baseUrl + highres + posterPath)!)
+            let smallImageRequest = NSURLRequest(URL: NSURL(string: baseUrl + lowres + posterPath)!)
         
         //Fade
+        cell.self.posterView.image = smallImage
         cell.self.posterView.setImageWithURLRequest(
-            imageRequest,
-            placeholderImage: uimage,
-            success: { (imageRequest,imageResponse, image) -> Void in
+            smallImageRequest,
+            placeholderImage: nil,
+            success: { (smallImageRequest,smallImageResponse, smallImage) -> Void in
                 cell.self.posterView.alpha = 0.0
-                cell.self.posterView.image = image
-                UIView.animateWithDuration(1.5, animations: { () -> Void in
-                        cell.self.posterView.alpha = 1.0
+                //Low Res Image loaded before High Res
+                cell.self.posterView.image = smallImage;
+
+                UIView.animateWithDuration(0.3, animations: { () -> Void in
+                    
+                    cell.self.posterView.alpha = 1.0
+                    
+                    }, completion: { (success) -> Void in
+                       cell.self.posterView.setImageWithURLRequest(
+                            largeImageRequest,
+                            placeholderImage: smallImage,
+                            success: { (largeImageRequest, largeImageResponse, largeImage) -> Void in
+                                
+                            cell.self.posterView.image = largeImage;
+                    },
+
+                    failure:  { (request, response, error) -> Void in
+
+                        
                     })
+                        
+                })
             },
-            failure: { (imageRequest, imageResponse, error) -> Void in
-                
-            })
-            
-        }
+                failure: { (request, response, error) -> Void in
+        })}
         
+        //Change selected tab color
         let backgroundView = UIView()
         backgroundView.backgroundColor = UIColor(red: 0/255.0, green:122/255.0, blue:255/255.0, alpha:0.8)
         cell.selectedBackgroundView = backgroundView
@@ -175,9 +194,9 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         print("HELLO")
         refreshControl.endRefreshing()
     }
-    //Fade in
     
-    @IBAction func onTap(sender: AnyObject) {
+    //On Tap, end take keyboard out
+    func onTap(sender: AnyObject) {
         view.endEditing(true)
     }
 
@@ -202,5 +221,6 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         // Pass the selected object to the new view controller.
     }
     
+
 
 }

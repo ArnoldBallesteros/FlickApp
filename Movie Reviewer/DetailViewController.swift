@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import XCDYouTubeKit
 
 class DetailViewController: UIViewController {
 
@@ -25,7 +26,7 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //Scroll
-        scrollView.contentSize = CGSize(width: scrollView.frame.size.width, height: infoView.frame.origin.y + infoView.frame.size.height)
+        scrollView.contentSize = CGSize(width: scrollView.frame.size.width, height: infoView.frame.origin.y + infoView.frame.size.height * 2)
         
         
         //Title
@@ -39,18 +40,18 @@ class DetailViewController: UIViewController {
             //OverView Size
         overviewLabel.sizeToFit()
         
+        
         //Poster Image
         let placeHolder = "http://i.imgur.com/3BZctvK.png"
         
         let baseUrl = "http://image.tmdb.org/t/p/w500"
+        let uimage = UIImage(named: placeHolder)
 
         
         if let posterPath = movie["poster_path"] as? String {
-            let imageUrl = NSURL(string: baseUrl + posterPath)
-            let uimage = UIImage(named: placeHolder)
             //        let placeView = UIImageView(image: uimage!)
             let imageRequest = NSURLRequest(URL: NSURL(string: baseUrl + posterPath)!)
-            
+            let imageUrl = NSURL(string: baseUrl + posterPath)
             
             //Fade, added posterImageView instead of posterView from MoviesViewController, took out cells
             self.posterImageView.setImageWithURLRequest(
@@ -68,8 +69,9 @@ class DetailViewController: UIViewController {
             })
             
         }
-
-
+        
+             
+        
         // Do any additional setup after loading the view.
     }
 

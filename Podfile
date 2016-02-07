@@ -5,7 +5,8 @@ use_frameworks!
 
 target 'Movie Reviewer' do
     pod 'AFNetworking', '~> 3.0'
-    pod 'MBProgressHUD'
+    pod 'MBProgressHUD’
+    pod ”XCDYouTubeKit", "~> 2.5"
     
 end
 
